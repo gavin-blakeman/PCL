@@ -1,0 +1,6 @@
+Makefile.*
+Makefile
+*.user
+*.html
+/Documentation/html/
+*.filters
