@@ -28,7 +28,7 @@
 //
 // CLASSES INCLUDED:    CVelocity
 //
-// HISTORY:             2015-09-22 GGB - AIRDAS 2015.09 release
+// HISTORY:             2015-09-22 GGB - astroManager 2015.09 release
 //                      2015-05-23 GGB - Development of classes
 //
 //*********************************************************************************************************************************
