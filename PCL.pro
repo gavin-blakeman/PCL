@@ -27,7 +27,7 @@ else:unix:CONFIG(debug, debug|release) {
   OBJECTS_DIR = "objects"
 }
 
-QMAKE_CXXFLAGS += -std=c++1y
+QMAKE_CXXFLAGS += -std=c++17
 
 INCLUDEPATH += \
   "../boost 1.62" \

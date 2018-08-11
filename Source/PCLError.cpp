@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								PCLError
@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman (GGB)
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2016 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General
@@ -64,9 +64,9 @@ namespace PCL
     {0x3000, std::string("MASS: Invalid Units")}
   };
 
-  /// Returns the string of the error message.
+  /// @brief Returns the string of the error message.
   //
-  // 2011-03-13/GGB - Function created.
+  /// @version 2011-03-13/GGB - Function created.
 
   std::string CPCLError::getErrorMessage() const
   {
