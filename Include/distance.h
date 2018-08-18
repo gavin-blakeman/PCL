@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								Length.h
@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2017 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -51,17 +51,17 @@ namespace PCL
 {
   double const IN_to_MM    (25.4);
 
-  enum EDistanceUnit
+  enum class DU
   {
-    DU_NONE,
-    DU_METER,
-    DU_INCH,
-    DU_YARD,
-    DU_ANGSTOM,
-    DU_FATHOM,
-    DU_FOOT,
-    DU_LEAGUE,
-    DU_MILE
+    NONE,
+    METER,
+    INCH,
+    YARD,
+    ANGSTOM,
+    FATHOM,
+    FOOT,
+    LEAGUE,
+    MILE
   };
 
   class CDistance
@@ -69,7 +69,7 @@ namespace PCL
   private:
     FP_t _length;     ///< Distance stored in meters.
 
-    void create(double, EDistanceUnit);
+    void create(double, DU);
 
   protected:
     static FP_t InchToMeter(FP_t);
@@ -89,11 +89,11 @@ namespace PCL
     static FP_t MeterToMile(FP_t);
 
   public:
-    CDistance(FP_t, EDistanceUnit = DU_METER);
+    CDistance(FP_t, DU = DU::METER);
 
-    FP_t operator ()(EDistanceUnit) const;
+    FP_t operator ()(DU) const;
 
-    static FP_t convert(FP_t, EDistanceUnit, EDistanceUnit);
+    static FP_t convert(FP_t, DU, DU);
   };
 
 }

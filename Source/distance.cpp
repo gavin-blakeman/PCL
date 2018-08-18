@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								Length.cpp
@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2017 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -53,7 +53,7 @@ namespace PCL
   //
   // 2011-07-29/GGB - Function created.
 
-  CDistance::CDistance(FP_t length, EDistanceUnit unit)
+  CDistance::CDistance(FP_t length, DU unit)
   {
     create(length, unit);
   }
@@ -63,37 +63,37 @@ namespace PCL
   // 2015-06-21/GGB - Removed throw() specifier.
   // 2011-07-11/GGB - Function created.
 
-  FP_t CDistance::operator ()(EDistanceUnit unit) const
+  FP_t CDistance::operator ()(DU unit) const
   {
     FP_t retVal;
 
     switch (unit)
     {
-    case DU_NONE:
+    case DU::NONE:
       PCL_ERROR(0x2000);
       break;
-    case DU_METER:
+    case DU::METER:
       retVal = _length;
       break;
-    case DU_INCH:
+    case DU::INCH:
       retVal = MeterToInch(_length);
       break;
-    case DU_YARD:
+    case DU::YARD:
       retVal = MeterToYard(_length);
       break;
-    case DU_ANGSTOM:
+    case DU::ANGSTOM:
       retVal = MeterToAngstrom(_length);
       break;
-    case DU_FATHOM:
+    case DU::FATHOM:
       retVal = MeterToFathom(_length);
       break;
-    case DU_FOOT:
+    case DU::FOOT:
       retVal = MeterToFoot(_length);
       break;
-    case DU_LEAGUE:
+    case DU::LEAGUE:
       retVal = MeterToLeague(_length);
       break;
-    case DU_MILE:
+    case DU::MILE:
       retVal = MeterToMile(_length);
       break;
     default:
@@ -117,7 +117,7 @@ namespace PCL
   //
   // 2011-07-31/GGB - Function created.
 
-  FP_t CDistance::convert(FP_t length, PCL::EDistanceUnit unitS, PCL::EDistanceUnit unitF)
+  FP_t CDistance::convert(FP_t length, DU unitS, DU unitF)
   {
     CDistance l(length, unitS);
 
@@ -129,35 +129,35 @@ namespace PCL
   // 2015-06-21/GGB - Removed throw() specification.
   // 2011-07-29/GGB - Function created.
 
-  void CDistance::create(FP_t length, EDistanceUnit unit)
+  void CDistance::create(FP_t length, DU unit)
   {
     switch (unit)
     {
-    case DU_NONE:
+    case DU::NONE:
       PCL_ERROR(0x2000);
       break;
-    case DU_METER:
+    case DU::METER:
       _length = length;
       break;
-    case DU_INCH:
+    case DU::INCH:
       _length = InchToMeter(length);
       break;
-    case DU_YARD:
+    case DU::YARD:
       _length = YardToMeter(length);
       break;
-    case DU_ANGSTOM:
+    case DU::ANGSTOM:
       _length = AngstromToMeter(length);
       break;
-    case DU_FATHOM:
+    case DU::FATHOM:
       _length = FathomToMeter(length);
       break;
-    case DU_FOOT:
+    case DU::FOOT:
       _length = FootToMeter(length);
       break;
-    case DU_LEAGUE:
+    case DU::LEAGUE:
       _length = LeagueToMeter(length);
       break;
-    case DU_MILE:
+    case DU::MILE:
       _length = MileToMeter(length);
       break;
     default:

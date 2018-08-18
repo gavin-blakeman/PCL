@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								velocity
@@ -83,7 +83,7 @@ namespace PCL
       };
       case VU_MPH:
       {
-        retVal = CDistance::convert(velocity_, DU_METER, DU_MILE);
+        retVal = CDistance::convert(velocity_, DU::METER, DU::MILE);
         retVal *= SecondsPerHour;
         break;
       };
@@ -137,7 +137,7 @@ namespace PCL
       };
       case VU_MPH:
       {
-        velocity_ = CDistance::convert(velocity, DU_MILE, DU_METER);
+        velocity_ = CDistance::convert(velocity, DU::MILE, DU::METER);
         velocity_ /= SecondsPerHour;
         break;
       };
