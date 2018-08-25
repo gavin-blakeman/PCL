@@ -49,8 +49,9 @@ namespace PCL
   //*******************************************************************************************************************************
 
   /// @brief Class constructor
-  //
-  // 2011-07-29/GGB - Function created.
+  /// @param[in] newPressure: The new pressure value.
+  /// @param[in] units: The type of units associated with the new value.
+  /// @version 2011-07-29/GGB - Function created.
 
   CPressure::CPressure(FP_t newPressure, PU units)
   {
@@ -81,9 +82,11 @@ namespace PCL
     return pressure_ == pressure;
   }
 
-  /// Returns the pressure in the specified units.
-  //
-  // 2011-07-29/GGB - Function created
+  /// @brief Returns the pressure in the specified units.
+  /// @param[in] units: The units to use for the return value.
+  /// @returns The Pressure in the specified units.
+  /// @throws 0x0100
+  /// @version 2011-07-29/GGB - Function created
 
   FP_t CPressure::operator ()(PU units) const
   {
@@ -91,12 +94,16 @@ namespace PCL
 
     switch (units)
     {
-    case PU::NONE:
-      PCL_ERROR(0x0100);
-      break;
-    case PU::PA:
-      retVal = pressure_;
-      break;
+      case PU::NONE:
+      {
+        PCL_ERROR(0x0100);
+        break;
+      };
+      case PU::PA:
+      {
+        retVal = pressure_;
+        break;
+      };
     case PU::BAR:
       retVal = PaToBar(pressure_);
       break;
