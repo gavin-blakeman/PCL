@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								Temperature.h
@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2017 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -88,7 +88,7 @@ namespace PCL
     bool operator ==(CTemperature const &) const;
     bool operator ==(FP_t) const;
 
-    FP_t operator ()(ETemperatureUnits) const;
+    FP_t operator ()(ETemperatureUnits = TU_C) const;
 
     static FP_t convert(FP_t, ETemperatureUnits, ETemperatureUnits);
   };
