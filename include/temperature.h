@@ -1,10 +1,10 @@
 ﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
-// FILE:								Length.h
-// SUBSYSTEM:						Length Classes
+// FILE:								Temperature.h
+// SUBSYSTEM:						Temperature Classes
 // LANGUAGE:						C++
-// TARGET OS:						All
+// TARGET OS:						WINDOWS/UNIX/LINUX/MAC
 // LIBRARY DEPENDANCE:	None.
 // NAMESPACE:						PCL
 // AUTHOR:							Gavin Blakeman.
@@ -24,10 +24,9 @@
 //                      You should have received a copy of the GNU General Public License along with PCL.  If not, see
 //                      <http://www.gnu.org/licenses/>.
 //
-// OVERVIEW:            Implements a class for handling lengths.
+// OVERVIEW:            Implements a class for handling temperatures
 //
-// CLASSES INCLUDED:    CLength
-//
+// CLASSES INCLUDED:    CTemperature
 //
 // HISTORY:             2015-09-22 GGB - astroManager 2015.09 release
 //                      2013-09-30 GGB - astroManager 2013.09 release.
@@ -37,11 +36,12 @@
 //
 //*********************************************************************************************************************************
 
-#ifndef PCL_LENGTH_H
-#define PCL_LENGTH_H
+#ifndef PCL_TEMPERATURE_H
+#define PCL_TEMPERATURE_H
+
+#include "error.h"
 
 #include "common.h"
-#include "PCLError.h"
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4290 )  /* Disable the warning about C++ exception specifications. */
@@ -49,53 +49,50 @@
 
 namespace PCL
 {
-  double const IN_to_MM    (25.4);
-
-  enum class DU
+  enum ETemperatureUnits
   {
-    NONE,
-    METER,
-    INCH,
-    YARD,
-    ANGSTOM,
-    FATHOM,
-    FOOT,
-    LEAGUE,
-    MILE
+    TU_NONE,
+    TU_C,
+    TU_K,
+    TU_F,
+    TU_R
   };
 
-  class CDistance
+
+  /// @brief Class to represent a physical temperature value.
+  /// @details The class is used to represent temperature values. The temperature is always specified as a temperature::unit pair
+  /// when accessing the class. The underlying storage in the class is always in Kelvin.
+
+  class CTemperature
   {
   private:
-    FP_t _length;     ///< Distance stored in meters.
+    FP_t temperature_;
 
-    void create(double, DU);
+    CTemperature() = delete;
 
   protected:
-    static FP_t InchToMeter(FP_t);
-    static FP_t YardToMeter(FP_t);
-    static FP_t AngstromToMeter(FP_t);
-    static FP_t FathomToMeter(FP_t);
-    static FP_t FootToMeter(FP_t);
-    static FP_t LeagueToMeter(FP_t);
-    static FP_t MileToMeter(FP_t);
+    void create(FP_t, ETemperatureUnits);
+    static FP_t CelsiusToKelvin(FP_t);
+    static FP_t FarenheitToKelvin(FP_t);
+    static FP_t RankineToKelvin(FP_t);
 
-    static FP_t MeterToInch(FP_t);
-    static FP_t MeterToYard(FP_t);
-    static FP_t MeterToAngstrom(FP_t);
-    static FP_t MeterToFathom(FP_t);
-    static FP_t MeterToFoot(FP_t);
-    static FP_t MeterToLeague(FP_t);
-    static FP_t MeterToMile(FP_t);
+    static FP_t KelvinToCelsius(FP_t);
+    static FP_t KelvinToFarenheit(FP_t);
+    static FP_t KelvinToRankine(FP_t);
 
   public:
-    CDistance(FP_t, DU = DU::METER);
+    CTemperature(FP_t , ETemperatureUnits = TU_C);
+    CTemperature(CTemperature const &toCopy) : temperature_(toCopy.temperature_) {}
 
-    FP_t operator ()(DU) const;
+    CTemperature &operator =(CTemperature const &);
+    bool operator ==(CTemperature const &) const;
+    bool operator ==(FP_t) const;
 
-    static FP_t convert(FP_t, DU, DU);
+    FP_t operator ()(ETemperatureUnits = TU_C) const;
+
+    static FP_t convert(FP_t, ETemperatureUnits, ETemperatureUnits);
   };
 
-}
+} // namespace PCL
 
-#endif // PCL__LENGTH
+#endif // PCL_TEMPERATURE_H

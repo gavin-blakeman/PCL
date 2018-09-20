@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								Mass.cpp
@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2016 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -36,7 +36,7 @@
 //
 //*********************************************************************************************************************************
 
-#include "../Include/mass.h"
+#include "../include/mass.h"
 
 namespace PCL
 {

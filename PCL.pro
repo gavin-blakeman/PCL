@@ -33,24 +33,24 @@ INCLUDEPATH += \
   "../boost 1.62" \
   "../GCL" \
   "../MCL" \
-  "../SCL"
+  #"../SCL"
 
 SOURCES += \
-    Source/temperature.cpp \
-    Source/pressure.cpp \
-    Source/PCLError.cpp \
-    Source/mass.cpp \
-    Source/velocity.cpp \
-    Source/common.cpp \
-    Source/distance.cpp
+    source/temperature.cpp \
+    source/pressure.cpp \
+    source/mass.cpp \
+    source/velocity.cpp \
+    source/common.cpp \
+    source/distance.cpp \
+    source/error.cpp
 
 HEADERS += \
-    Include/constants.h \
-    Include/mass.h \
-    Include/PCLError.h \
-    Include/pressure.h \
-    Include/temperature.h \
-    Include/velocity.h \
+    include/constants.h \
+    include/mass.h \
+    include/pressure.h \
+    include/temperature.h \
+    include/velocity.h \
     PCL \
-    Include/common.h \
-    Include/distance.h
+    include/common.h \
+    include/distance.h \
+    include/error.h

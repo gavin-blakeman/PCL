@@ -37,9 +37,9 @@
 //
 //*********************************************************************************************************************************
 
-#include "../Include/distance.h"
+#include "../include/distance.h"
 
-#include "../Include/constants.h"
+#include "../include/constants.h"
 
 namespace PCL
 {
@@ -49,19 +49,23 @@ namespace PCL
   //
   //*******************************************************************************************************************************
 
-  // Constructor for the class.
-  //
-  // 2011-07-29/GGB - Function created.
+  /// @brief Constructor for the class.
+  /// @param[in] length: The length to intialise the class with.
+  /// @param[in] unit: The units of length
+  /// @throws None.
+  /// @version 2011-07-29/GGB - Function created.
 
   CDistance::CDistance(FP_t length, DU unit)
   {
     create(length, unit);
   }
 
-  // Returns the value in the specified units.
-  //
-  // 2015-06-21/GGB - Removed throw() specifier.
-  // 2011-07-11/GGB - Function created.
+  /// @brief Returns the value in the specified units.
+  /// @param[in] unit: The units to return.
+  /// @returns The stored length in the specified units.
+  /// @throws CError(PCL, 0x2000)
+  /// @version 2015-06-21/GGB - Removed throw() specifier.
+  /// @version 2011-07-11/GGB - Function created.
 
   FP_t CDistance::operator ()(DU unit) const
   {
@@ -104,7 +108,7 @@ namespace PCL
     return retVal;
   }
 
-  // Converts angstroms to meters.
+  /// @brief Converts angstroms to meters.
   //
   // 2011-07-29/GGB - Function created.
 
@@ -265,9 +269,11 @@ namespace PCL
     return (toConvert / DYARD);
   }
 
-  // Converts miles to meters.
-  //
-  // 2011-07-29/GGB - Function created.
+  /// @brief Converts miles to meters.
+  /// @param[in] toConvert: The value to convert.
+  /// @returns The converted value.
+  /// @throws
+  /// @version 2011-07-29/GGB - Function created.
 
   FP_t CDistance::MileToMeter(FP_t toConvert)
   {

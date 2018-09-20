@@ -36,9 +36,11 @@
 //
 //*********************************************************************************************************************************
 
-#include "../Include/temperature.h"
+#include "../include/temperature.h"
 
-#include "../Include/constants.h"
+  // PCL library header files.
+
+#include "../include/constants.h"
 
 namespace PCL
 {

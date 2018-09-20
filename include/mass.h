@@ -1,16 +1,16 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
-// FILE:								velocity.h
-// SUBSYSTEM:						Velocity class
+// FILE:								Mass.h
+// SUBSYSTEM:						Mass Classes
 // LANGUAGE:						C++
-// TARGET OS:						All
+// TARGET OS:						WINDOWS/UNIX/LINUX/MAC
 // LIBRARY DEPENDANCE:	None.
 // NAMESPACE:						PCL
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2015 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -24,19 +24,23 @@
 //                      You should have received a copy of the GNU General Public License along with PCL.  If not, see
 //                      <http://www.gnu.org/licenses/>.
 //
-// OVERVIEW:            Implements a class for handling lengths.
+// OVERVIEW:            Implements a class for handling Mass.
 //
-// CLASSES INCLUDED:    CVelocity
+// CLASSES INCLUDED:    CMass
+//
 //
 // HISTORY:             2015-09-22 GGB - astroManager 2015.09 release
-//                      2015-05-23 GGB - Development of classes
+//                      2013-09-30 GGB - astroManager 2013.09 release.
+//                      2013-03-22 GGB - astroManager 2013.03 release.
+//                      2013-01-20 GGB - astroManager 0000.00 release.
+//                      2011-07-29 GGB - Development of classes for openAIRS
 //
 //*********************************************************************************************************************************
 
-#ifndef PCL_VELOCITY_H
-#define PCL_VELOCITY_H
+#ifndef PCL_MASS_H
+#define PCL_MASS_H
 
-#include "PCLError.h"
+#include "error.h"
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4290 )  /* Disable the warning about C++ exception specifications. */
@@ -44,30 +48,32 @@
 
 namespace PCL
 {
-  enum EVelocityUnit
+  enum EMassUnit
   {
-    VU_NONE,
-    VU_MPS,
-    VU_MPH,
-    VU_KPH,
+    MU_NONE,
+    MU_KG,
+    MU_LB,
   };
 
-  class CVelocity
+  class CMass
   {
   private:
-    double velocity_;
+    double _kg;
 
-    void create(double, EVelocityUnit);
+    void create(double, EMassUnit);
 
   protected:
+    static double LBtoKG(double);
+
+    static double KGtoLB(double);
+
   public:
-    CVelocity(double, EVelocityUnit = VU_MPS);
+    CMass(double, EMassUnit);
 
-    double operator ()(EVelocityUnit) const;
+    double operator ()(EMassUnit) const;
 
-    static double convert(double, EVelocityUnit, EVelocityUnit);
+    static double convert(double, EMassUnit, EMassUnit);
   };
-
 }
 
-#endif // PCL__Velocity
+#endif  // PCL_MASS_H

@@ -36,9 +36,9 @@
 //
 //*********************************************************************************************************************************
 
-#include "../Include/pressure.h"
+#include "../include/pressure.h"
 
-#include "../Include/constants.h"
+#include "../include/constants.h"
 
 namespace PCL
 {

@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2015 Gavin Blakeman.
+//                      Copyright 2015-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -33,10 +33,12 @@
 //
 //*********************************************************************************************************************************
 
-#include "../Include/velocity.h"
+#include "../include/velocity.h"
 
-#include "../Include/constants.h"
-#include "../Include/distance.h"
+  // PCL library header files.
+
+#include "../include/constants.h"
+#include "../include/distance.h"
 
 namespace PCL
 {

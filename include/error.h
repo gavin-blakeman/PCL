@@ -1,4 +1,4 @@
-//*********************************************************************************************************************************
+﻿//*********************************************************************************************************************************
 //
 // PROJECT:							Physics Class Library
 // FILE:								PCLError.h
@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2016 Gavin Blakeman.
+//                      Copyright 2011-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General
@@ -43,50 +43,14 @@
 #ifndef PCL_PCLERROR_H
 #define PCL_PCLERROR_H
 
-#include <stdexcept>
-#include <string>
-#include <map>
+// Miscellaneous libraries
+
+#include "../GCL/include/error.h" //!!! If the full GCL package is included at this point, it creates cicular references and errors.
 
 namespace PCL
 {
-
-  typedef std::map<size_t, std::string> TErrorStore;
-
-  class CPCLError : public std::runtime_error
-  {
-  private:
-    static TErrorStore errorMessages;
-    unsigned int errorCode_;
-
-  public:
-    inline explicit CPCLError(unsigned int newError) : std::runtime_error("PCL Error"), errorCode_(newError) {}
-    inline virtual ~CPCLError() throw() {}
-
-    virtual unsigned int getErrorCode() const { return errorCode_;}
-    virtual std::string getErrorMessage() const;
-    virtual void logErrorMessage() const;
-
-    static void loadErrorMessages();
-  };
-
-  class CPCLCodeError : public CPCLError
-  {
-  private:
-    std::string fileName;
-    long lineNo;
-    std::string timeStamp;
-
-  public:
-    inline explicit CPCLCodeError(const std::string newFile, const std::string newTime, long newLine)
-      : CPCLError(0xFFFF), fileName(newFile), lineNo(newLine), timeStamp(newTime) {}
-    inline virtual ~CPCLCodeError() throw() {}
-
-    virtual std::string getErrorMessage() const;
-    virtual void logErrorMessage() const;
-  };
-
-#define PCL_ERROR(errorNo) (throw(CPCLError(errorNo)))
-#define PCL_CODE_ERROR throw (CPCLCodeError( __FILE__, __TIMESTAMP__, (long) __LINE__) )
+#define PCL_ERROR(errorNo) (ERROR(PCL, errorNo))
+#define PCL_CODE_ERROR CODE_ERROR(PCL)
 
 }	// namespace PCL
 

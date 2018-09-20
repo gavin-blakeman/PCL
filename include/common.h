@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman (GGB)
 // LICENSE:             GPLv2
 //
-//                      Copyright 2015 Gavin Blakeman.
+//                      Copyright 2015-2018 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General
@@ -32,46 +32,25 @@
 //
 // CLASS HIERARCHY:     None.
 //
-// FUNCTIONS INCLUDED:  std::string getVersionString()
 //
 // HISTORY:             2015-09-22 GGB - astroManager 2015.09 release
-//                      2015-06-29 GGB - File created.
+//                      2015-06-29 GGB - File Created
 //
 //*********************************************************************************************************************************
 
-#include "../Include/common.h"
+#ifndef PCL_COMMON_H
+#define PCL_COMMON_H
 
-  // Standard libraries
-
-#include <iomanip>
-#include <sstream>
 #include <string>
-
-  // Boost Library
-
-#include <boost/algorithm/string.hpp>
 
 namespace PCL
 {
 
-  unsigned int const PCL_MAJORVERSION = 2015;           ///< The Major version number (yyyy)
-  unsigned int const PCL_MINORVERSION = 9;              ///< The Minor version number (mm)
-  unsigned int const PCL_BUILDNUMBER  = 0x0000;         ///< The build numnber - incremented on each build.
+  typedef double FP_t;
 
-  /// @brief Returns the library version and build number.
-  /// @returns A string with the application name, version, build.
-  /// @throws Nothing.
-  /// @version 2015-06-29/GGB - Function created.
+  std::string const PCL_LIBNAME       = "PCL";
 
-  std::string getVersionString()
-  {
-    std::stringstream s;
-
-    s << PCL_MAJORVERSION << "." << std::setfill('0') << std::setw(2) << PCL_MINORVERSION << std::setw(4) << std::hex << PCL_BUILDNUMBER << std::endl;
-
-    std::string returnValue = s.str();
-    boost::algorithm::to_upper(returnValue);
-
-    return returnValue;
-  }
+  std::string getVersionString();
 }
+
+#endif // PCL_COMMON_H

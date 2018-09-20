@@ -39,7 +39,7 @@
 #ifndef PCL_PRESSURE_H
 #define PCL_PRESSURE_H
 
-#include "PCLError.h"
+#include "error.h"
 #include "common.h"
 
 #ifdef _MSC_VER
