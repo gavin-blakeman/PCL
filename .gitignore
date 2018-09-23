@@ -4,3 +4,5 @@ Makefile
 *.html
 /Documentation/html/
 *.filters
+
+*.bak
