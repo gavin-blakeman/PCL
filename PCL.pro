@@ -4,11 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       -= core gui
-
 TARGET = PCL
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib create_prl
+
+QT       -= core gui
 
 win32:CONFIG(release, debug|release) {
   DESTDIR = "../Library/win32/release"
