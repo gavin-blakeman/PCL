@@ -36,7 +36,9 @@
 //
 //*********************************************************************************************************************************
 
-#include "../include/mass.h"
+#include "include/mass.h"
+
+#include <GCL>
 
 namespace PCL
 {
@@ -67,7 +69,7 @@ namespace PCL
     switch (unit)
     {
     case MU_NONE:
-      PCL_ERROR(0x3000);
+      ERRORMESSAGE("MASS: Invalid Units");
       break;
     case MU_KG:
       retVal = _kg;
@@ -76,7 +78,7 @@ namespace PCL
       retVal = KGtoLB(_kg);
       break;
     default:
-      PCL_ERROR(0x3000);
+      ERRORMESSAGE("MASS: Invalid Units");
       break;
     };
 
@@ -104,7 +106,7 @@ namespace PCL
     switch (unit)
     {
     case MU_NONE:
-      PCL_ERROR(0x3000);
+      ERRORMESSAGE("MASS: Invalid Units");
       break;
     case MU_KG:
       _kg = mass;
@@ -113,7 +115,7 @@ namespace PCL
       _kg = LBtoKG(mass);
       break;
     default:
-      PCL_ERROR(0x3000);
+      ERRORMESSAGE("MASS: Invalid Units");
       break;
     };
   }

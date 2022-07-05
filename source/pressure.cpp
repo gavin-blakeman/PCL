@@ -10,7 +10,7 @@
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
-//                      Copyright 2011-2018 Gavin Blakeman.
+//                      Copyright 2011-2022 Gavin Blakeman.
 //                      This file is part of the Physics Class Library (PCL)
 //
 //                      PCL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -36,9 +36,11 @@
 //
 //*********************************************************************************************************************************
 
-#include "../include/pressure.h"
+#include "include/pressure.h"
 
-#include "../include/constants.h"
+#include "include/constants.h"
+
+#include <GCL>
 
 namespace PCL
 {
@@ -96,7 +98,7 @@ namespace PCL
     {
       case PU::NONE:
       {
-        PCL_ERROR(0x0100);
+        ERRORMESSAGE("PRESSURE: Invalid Units");
         break;
       };
       case PU::PA:
@@ -120,7 +122,7 @@ namespace PCL
       retVal = PaToInHg(pressure_);
       break;
     default:
-      PCL_ERROR(0x0100);
+      ERRORMESSAGE("PRESSURE: Invalid Units");
       break;
     };
 
@@ -151,7 +153,7 @@ namespace PCL
     switch (units)
     {
     case PU::NONE:
-      PCL_ERROR(0x0100);
+      ERRORMESSAGE("PRESSURE: Invalid Units");
       break;
     case PU::PA:
       pressure_ = Pressure;
@@ -172,7 +174,7 @@ namespace PCL
       pressure_ = InHgToPa(Pressure);
       break;
     default:
-      PCL_ERROR(0x0100);
+      ERRORMESSAGE("PRESSURE: Invalid Units");
       break;
     };
   }

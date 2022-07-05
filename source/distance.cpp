@@ -37,9 +37,11 @@
 //
 //*********************************************************************************************************************************
 
-#include "../include/distance.h"
+#include "include/distance.h"
 
-#include "../include/constants.h"
+#include "include/constants.h"
+
+#include <GCL>
 
 namespace PCL
 {
@@ -74,7 +76,7 @@ namespace PCL
     switch (unit)
     {
     case DU::NONE:
-      PCL_ERROR(0x2000);
+      ERRORMESSAGE("LENGTH: Invalid Units");
       break;
     case DU::METER:
       retVal = _length;
@@ -101,7 +103,7 @@ namespace PCL
       retVal = MeterToMile(_length);
       break;
     default:
-      PCL_ERROR(0x2000);
+      ERRORMESSAGE("LENGTH: Invalid Units");
       break;
     };
 
@@ -138,7 +140,7 @@ namespace PCL
     switch (unit)
     {
     case DU::NONE:
-      PCL_ERROR(0x2000);
+      ERRORMESSAGE("LENGTH: Invalid Units");
       break;
     case DU::METER:
       _length = length;
@@ -165,7 +167,7 @@ namespace PCL
       _length = MileToMeter(length);
       break;
     default:
-      PCL_ERROR(0x2000);
+      ERRORMESSAGE("LENGTH: Invalid Units");
       break;
     };
   }

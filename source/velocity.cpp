@@ -33,12 +33,14 @@
 //
 //*********************************************************************************************************************************
 
-#include "../include/velocity.h"
+#include "include/velocity.h"
 
   // PCL library header files.
 
-#include "../include/constants.h"
-#include "../include/distance.h"
+#include "include/constants.h"
+#include "include/distance.h"
+
+#include <GCL>
 
 namespace PCL
 {
@@ -75,7 +77,7 @@ namespace PCL
     {
       case VU_NONE:
       {
-        PCL_ERROR(0x0200);
+        ERRORMESSAGE("Velocity: Invalid Units");
         break;
       };
       case VU_MPS:
@@ -97,7 +99,7 @@ namespace PCL
       };
       default:
       {
-        PCL_ERROR(0x0200);
+        ERRORMESSAGE("Velocity: Invalid Units");
         break;
       };
     };
@@ -129,7 +131,7 @@ namespace PCL
     {
       case VU_NONE:
       {
-        PCL_ERROR(0x0200);
+        ERRORMESSAGE("Velocity: Invalid Units");
         break;
       };
       case VU_MPS:
@@ -151,7 +153,7 @@ namespace PCL
       };
       default:
       {
-        PCL_ERROR(0x0200);
+        ERRORMESSAGE("Velocity: Invalid Units");
         break;
       };
     };

@@ -40,8 +40,7 @@ SOURCES += \
     source/mass.cpp \
     source/velocity.cpp \
     source/common.cpp \
-    source/distance.cpp \
-    source/error.cpp
+    source/distance.cpp
 
 HEADERS += \
     include/constants.h \
@@ -51,5 +50,4 @@ HEADERS += \
     include/velocity.h \
     PCL \
     include/common.h \
-    include/distance.h \
-    include/error.h
+    include/distance.h

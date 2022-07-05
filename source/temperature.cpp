@@ -36,11 +36,13 @@
 //
 //*********************************************************************************************************************************
 
-#include "../include/temperature.h"
+#include "include/temperature.h"
 
   // PCL library header files.
 
-#include "../include/constants.h"
+#include "include/constants.h"
+
+#include <GCL>
 
 namespace PCL
 {
@@ -111,7 +113,7 @@ namespace PCL
     switch (units)
     {
     case TU_NONE:
-      PCL_ERROR(0x1000);
+      ERRORMESSAGE("TEMPERATURE: Invalid Units");
       break;
     case TU_C:
       retVal = KelvinToCelsius(temperature_);
@@ -123,7 +125,7 @@ namespace PCL
       retVal = KelvinToFarenheit(temperature_);
       break;
     default:
-      PCL_ERROR(0x1000);
+      ERRORMESSAGE("TEMPERATURE: Invalid Units");
       break;
     };
 
@@ -151,7 +153,7 @@ namespace PCL
     switch (units)
     {
     case TU_NONE:
-      PCL_ERROR(0x1000);
+      ERRORMESSAGE("TEMPERATURE: Invalid Units");
       break;
     case TU_C:
       temperature_ = CelsiusToKelvin(newTemperature);
@@ -163,7 +165,7 @@ namespace PCL
       temperature_ = FarenheitToKelvin(newTemperature);
       break;
     default:
-      PCL_ERROR(0x1000);
+      ERRORMESSAGE("TEMPERATURE: Invalid Units");
       break;
     };
   }
