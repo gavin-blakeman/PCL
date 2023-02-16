@@ -30,7 +30,6 @@ else:unix:CONFIG(debug, debug|release) {
 QMAKE_CXXFLAGS += -std=c++20
 
 INCLUDEPATH += \
-  "/home/gavin/Documents/Projects/software/Library/Boost/boost_1_71_0" \
   "../GCL" \
   "../MCL" \
 
