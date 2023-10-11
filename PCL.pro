@@ -50,3 +50,6 @@ HEADERS += \
     PCL \
     include/common.h \
     include/distance.h
+
+DISTFILES += \
+  CMakeLists.txt
