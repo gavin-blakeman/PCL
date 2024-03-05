@@ -27,10 +27,15 @@ set(HEADERS
   include/velocity.h
   PCL
   )
+  
+set(DIRECTORIES  
+  ${CMAKE_SOURCE_DIR}/GCL
+  ${CMAKE_SOURCE_DIR}/SCL    
+  ../fmt/include
+  ${Boost_INCLUDE_DIRS}
+  )
 
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
-target_include_directories(${PROJECT_NAME}
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-  PRIVATE ../GCL)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} PRIVATE ${DIRECTORIES})
